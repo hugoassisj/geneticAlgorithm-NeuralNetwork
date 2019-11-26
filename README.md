@@ -2,11 +2,11 @@
 Using a Genetic Algorithm to train a Neural Network to solve the Inverted Pendulum problem
 
 Observation: 
-    Num	Observation                 Min         Max
-    0	Cart Position             -4.8            4.8
-    1	Cart Velocity             -Inf            Inf
-    2	Pole Angle                 -24 deg        24 deg
-    3	Pole Velocity At Tip      -Inf            Inf
+    | Num	Observation         |        Min    |     Max |
+    | 0	Cart Position           |  -4.8         |   4.8   |
+    | 1	Cart Velocity           |  -Inf         |   Inf   |
+    | 2	Pole Angle              |   -24 deg     |   24 deg |
+    | 3	Pole Velocity At Tip    |  -Inf         |   Inf    |
 
 Actions:
     Num	Action
