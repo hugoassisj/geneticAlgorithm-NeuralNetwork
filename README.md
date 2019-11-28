@@ -1,7 +1,8 @@
 # geneticAlgorithm-NeuralNetwork
 Using a Genetic Algorithm to train a Neural Network to solve the Inverted Pendulum problem.
 
-Observation: 
+Observation:
+
 | Num | Observation          | Min     | Max    |
 |-----|----------------------|---------|--------|
 | 0   | Cart Position        | -4.8    | 4.8    |
@@ -10,6 +11,7 @@ Observation:
 | 3   | Pole Velocity At Tip | -Inf    | Inf    |
 
 Actions:
+
 | Num | Action                 |
 |-----|------------------------|
 | 0   | Push cart to the left  |
