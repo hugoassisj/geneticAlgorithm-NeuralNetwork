@@ -1,3 +1,5 @@
+[![HitCount](http://hits.dwyl.io/hugoassisj/geneticAlgorithm-NeuralNetwork.svg)](http://hits.dwyl.io/hugoassisj/geneticAlgorithm-NeuralNetwork)
+
 # geneticAlgorithm-NeuralNetwork
 Using a Genetic Algorithm to train a Neural Network to solve the Inverted Pendulum problem.
 
