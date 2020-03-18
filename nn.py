@@ -17,6 +17,7 @@ class Neural_Network(object):
         self.a3 = self.relu(self.z3)
         self.z4 = np.dot(self.a3, self.W3)
         yHat = self.relu(self.z4)
+
         return yHat
 
     def set_weights(self, weights):

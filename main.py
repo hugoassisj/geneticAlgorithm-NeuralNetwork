@@ -4,15 +4,11 @@ from ga import GA
 import matplotlib.pyplot as plt
 import time
 
-GENERATIONS = 2000
-MUTATION_RATE = 0.01
-CROSSOVER_RATE = 0.5
-POPULATION_SIZE = 6
-OPENAI_EVALUATIONS = 1000
-
-# Create First Population
-population = Population(POPULATION_SIZE)
-genetic_algorithm = GA(MUTATION_RATE, CROSSOVER_RATE, OPENAI_EVALUATIONS)
+GENERATIONS = 500
+MUTATION_RATE = 0.1
+CROSSOVER_RATE = 0.7
+POPULATION_SIZE = 8
+OPENAI_EVALUATIONS = 500
 
 
 def populate_fitness(population):
@@ -26,6 +22,17 @@ def get_best_individue(population):
     return population[np.argmax([x.fitness for x in population])]
 
 
+def run_best(file):
+    weights = np.load('best/' + str(file) + '.npy', allow_pickle=True)
+    genetic_algorithm.openAI.run_result(weights)
+
+
+# Create First Population
+population = Population(POPULATION_SIZE)
+genetic_algorithm = GA(MUTATION_RATE, CROSSOVER_RATE, OPENAI_EVALUATIONS)
+
+# run_best('1575216646.5449824np_294')
+
 populate_fitness(population.get())
 
 best_individue = None
@@ -37,26 +44,28 @@ for i in range(1, GENERATIONS):
     new_poulation = genetic_algorithm.generation(population.get())
     new_poulation.get()[0] = best_individue
     population = new_poulation
-    mean.append(sum([x.fitness for x in population.get()]) / POPULATION_SIZE)
     populate_fitness(population.get())
-    print(i, best_individue.fitness)
+    print(i,best_individue.fitness)
     if best_individue.fitness == OPENAI_EVALUATIONS:
+        np.save('best/' + str(time.time()) + 'np_' + '.npy', best_individue.weights)
+        genetic_algorithm.openAI.run_result(best_individue.weights)
         break
 
-start = time.time()
-genetic_algorithm.openAI.run_result(best_individue.weights)
-end = time.time()
-print(end - start, ' seconds')
+# start = time.time()
+# genetic_algorithm.openAI.run_result(best_individue.weights)
+# end = time.time()
+# print(end - start, ' seconds')
 
 # Plot evaluation data
-plt.figure()
-plt.axhline(y=OPENAI_EVALUATIONS, color='r', linestyle='dashed')
-plt.plot([x.fitness for x in best_individues], color='b', linestyle='solid')
-plt.plot(mean, color='g', linestyle='dotted')
+# if best_individue.fitness > 300:
+#     #     plt.figure()
+#     #     plt.axhline(y=OPENAI_EVALUATIONS, color='r', linestyle='dashed')
+#     #     plt.plot([x.fitness for x in best_individues], color='b', linestyle='solid')
+#     #     # plt.plot(mean, color='g', linestyle='dotted')
+#     #
+#     #     plt.ylabel('Fitness Value')
+#     #     plt.xlabel('Generation')
+#     #     plt.legend(['Maximum', 'Best individue'])
+#     #     plt.savefig('imgs/' + str(time.time()) + '_' + str(kkk) + '.png')
+# plt.show(block=False)
 
-plt.ylabel('Fitness Value')
-plt.xlabel('Generation')
-plt.legend(['Maximum', 'Best', 'Mean'])
-plt.show(block=True)
-
-# mean.append(sum([pair[0] for pair in population.get()]) / POPULATION_SIZE)
