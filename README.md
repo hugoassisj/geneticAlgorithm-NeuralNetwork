@@ -23,5 +23,5 @@ Actions:
 
  * Note: The amount the velocity that is reduced or increased is not fixed; it depends on the angle the pole is pointing. This is because the center of gravity of the pole increases the amount of energy needed to move the cart underneath it
 
-
+![Picture1](https://user-images.githubusercontent.com/45035051/76994908-d3700480-692d-11ea-8dd8-a9078b957160.gif)
 
