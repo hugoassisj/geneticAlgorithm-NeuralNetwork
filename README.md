@@ -3,6 +3,8 @@
 # geneticAlgorithm-NeuralNetwork
 Using a Genetic Algorithm to train a Neural Network to solve the Inverted Pendulum problem.
 
+![one](https://user-images.githubusercontent.com/45035051/76994682-88ee8800-692d-11ea-86a2-978504a558e7.png)
+
 Observation:
 
 | Num | Observation          | Min     | Max    |
@@ -21,11 +23,5 @@ Actions:
 
  * Note: The amount the velocity that is reduced or increased is not fixed; it depends on the angle the pole is pointing. This is because the center of gravity of the pole increases the amount of energy needed to move the cart underneath it
 
-Reward:
-    Reward is 1 for every step taken, including the termination step
 
-Starting State:
-    All observations are assigned a uniform random value in [-0.05..0.05]
-
-Episode Termination:
 
